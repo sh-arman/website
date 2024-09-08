@@ -5,12 +5,12 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Arman Hasan Resume</title>
+  <title>vCard - Personal Portfolio</title>
 
   <!--
     - favicon
   -->
-  <!-- <link rel="shortcut icon" href="./assets/images/logo.ico" type="image/x-icon"> -->
+  <link rel="shortcut icon" href="./assets/images/logo.ico" type="image/x-icon">
 
   <!--
     - custom css link
@@ -33,40 +33,22 @@
 
   <main>
 
- 
+    <!--
+      - #SIDEBAR
+    -->
+
     <aside class="sidebar" data-sidebar>
 
       <div class="sidebar-info">
 
         <figure class="avatar-box">
-          <img src="./assets/img/Arman.jpg" alt="Arman Hasan" width="80" style="border-radius: 20px;">
+          <img src="./assets/images/my-avatar.png" alt="Richard hanrick" width="80">
         </figure>
 
         <div class="info-content">
-          <h1 class="name" title="Arman Hasan">Arman Hasan</h1>
+          <h1 class="name" title="Richard hanrick">Richard hanrick</h1>
 
-          <!-- <p class="title">Web developer</p> -->
-          <ul class="social-list">
-
-            <li class="social-item">
-              <a href="https://www.linkedin.com/in/armanhasan98" target="_blank" class="social-link">
-                <ion-icon name="logo-linkedin"></ion-icon>
-              </a>
-            </li>
-  
-            <li class="social-item">
-              <a href="https://github.com/sh-arman" target="_blank" class="social-link">
-                <ion-icon name="logo-github"></ion-icon>
-              </a>
-            </li>
-  
-            <!-- <li class="social-item">
-              <a href="#" class="social-link">
-                <ion-icon name="logo-instagram"></ion-icon>
-              </a>
-            </li> -->
-  
-          </ul>
+          <p class="title">Web developer</p>
         </div>
 
         <button class="info_more-btn" data-sidebar-btn>
@@ -92,7 +74,7 @@
             <div class="contact-info">
               <p class="contact-title">Email</p>
 
-              <a href="mailto:armanhassan504@gmail.com" class="contact-link">armanhassan504@gmail.com</a>
+              <a href="mailto:richard@example.com" class="contact-link">richard@example.com</a>
             </div>
 
           </li>
@@ -100,13 +82,27 @@
           <li class="contact-item">
 
             <div class="icon-box">
-              <ion-icon name="logo-whatsapp"></ion-icon>
+              <ion-icon name="phone-portrait-outline"></ion-icon>
             </div>
 
             <div class="contact-info">
               <p class="contact-title">Phone</p>
 
-              <a href="tel:+8801947423947" class="contact-link">+880 1947423947</a>
+              <a href="tel:+12133522795" class="contact-link">+1 (213) 352-2795</a>
+            </div>
+
+          </li>
+
+          <li class="contact-item">
+
+            <div class="icon-box">
+              <ion-icon name="calendar-outline"></ion-icon>
+            </div>
+
+            <div class="contact-info">
+              <p class="contact-title">Birthday</p>
+
+              <time datetime="1982-06-23">June 23, 1982</time>
             </div>
 
           </li>
@@ -120,7 +116,7 @@
             <div class="contact-info">
               <p class="contact-title">Location</p>
 
-              <address>Dhaka, Bangladesh</address>
+              <address>Sacramento, California, USA</address>
             </div>
 
           </li>
@@ -129,49 +125,81 @@
 
         <div class="separator"></div>
 
-        
+        <ul class="social-list">
+
+          <li class="social-item">
+            <a href="#" class="social-link">
+              <ion-icon name="logo-facebook"></ion-icon>
+            </a>
+          </li>
+
+          <li class="social-item">
+            <a href="#" class="social-link">
+              <ion-icon name="logo-twitter"></ion-icon>
+            </a>
+          </li>
+
+          <li class="social-item">
+            <a href="#" class="social-link">
+              <ion-icon name="logo-instagram"></ion-icon>
+            </a>
+          </li>
+
+        </ul>
 
       </div>
 
     </aside>
 
 
+
+
+
+    <!--
+      - #main-content
+    -->
+
     <div class="main-content">
 
-  
+      <!--
+        - #NAVBAR
+      -->
 
       <nav class="navbar">
 
         <ul class="navbar-list">
+
           <li class="navbar-item">
-            <!-- <button class="navbar-link  " data-nav-link>About</button> -->
-            <a class="navbar-link active" href="index.html">About</a>
+            <button class="navbar-link  active" data-nav-link>About</button>
           </li>
 
           <li class="navbar-item">
-            <a class="navbar-link" href="resume.html">Resume</a>
+            <button class="navbar-link" data-nav-link>Resume</button>
           </li>
 
           <li class="navbar-item">
-            <a class="navbar-link" href="publication.html">Publication</a>
+            <button class="navbar-link" data-nav-link>Portfolio</button>
           </li>
 
           <li class="navbar-item">
-            <a class="navbar-link" href="project.html">Project</a>
+            <button class="navbar-link" data-nav-link>Blog</button>
           </li>
 
           <li class="navbar-item">
-            <a class="navbar-link" href="blog.html">Blog</a>
+            <button class="navbar-link" data-nav-link>Contact</button>
           </li>
 
-          <!-- <li class="navbar-item">
-            <a class="navbar-link" href="contact.html">Contact</a>
-          </li> -->
         </ul>
 
       </nav>
 
 
+
+
+
+      <!--
+        - #ABOUT
+      -->
 
       <article class="about  active" data-page="about">
 
@@ -181,76 +209,25 @@
 
         <section class="about-text">
           <p>
-            Hi! There, I am Shajedul Hasan Arman
+            I'm Creative Director and UI/UX Designer from Sydney, Australia, working in web development and print media.
+            I enjoy
+            turning complex problems into simple, beautiful and intuitive designs.
           </p>
 
           <p>
-            I am a Software Engineer at Panacea Live Ltd. at Bangladesh. My research interests are Artificial Intelligence, Machine Learning, Computer Vision, Data Science, and Software Development.
-            Furthermore, I've been focusing on Networking and Cyber-Security area. I received my BS.c degree from the University of Asia Pacific (UAP), advised by Mrs. Tahira Alam. <br> <br>
-            
-          I am seeking a graduate program in the field of Computer Science.
+            My job is to build your website so that it is functional and user-friendly but at the same time attractive.
+            Moreover, I
+            add personal touch to your product and make sure that is eye-catching and easy to use. My aim is to bring
+            across your
+            message and identity in the most creative way. I created web design for many famous brand companies.
           </p>
-        </section>
-
-        <h3 class="h3">Redearch Interests</h3> <br>
-        <ul class="filter-list">
-          <!-- <li class="filter-item">
-            <button class="active" data-filter-btn>All</button>
-          </li> -->
-          <li class="filter-item">
-            <button class="active" data-filter-btn>Artificial Intelligence</button>
-          </li>
-          <li class="filter-item">
-            <button class="active" data-filter-btn>Machine Learning</button>
-          </li>
-          <li class="filter-item">
-            <button class="active" data-filter-btn>Data Mining</button>
-          </li>
-          <li class="filter-item">
-            <button class="active" data-filter-btn>Computer Netwokring</button>
-          </li>
-        </ul>
-
-
-
-        <section class="timeline">
-          <div class="title-wrapper">
-            <div class="icon-box">
-              <ion-icon name="newspaper-outline"></ion-icon>
-            </div>
-
-            <h3 class="h3 active">News</h3>
-          </div>
-
-          <ol class="timeline-list">
-
-            <li class="timeline-item">
-              <!-- <h4 class="h4 timeline-item-title">Panacea Live Ltd</h4> -->
-              <span class="h4">9 July 2024</span>
-              <p class="timeline-text">
-                "An Automatic Violence Detection Technique Using Mobinet", Paper No.: EC240145 <br>
-                Program committees finished reviewing your full paper, and your paper is qualified for the inclusion in the conference proceedings for IEEE/ EI evaluation and publication. <br>
-              </p>
-            </li>
-
-            <li class="timeline-item">
-              <!-- <h4 class="h4 timeline-item-title">Panacea Live Ltd</h4> -->
-              <span class="h4">21 June 2024</span>
-              <p class="timeline-text">
-                IEEE ECBIOS 2024 Certificate of Online Poster Presentation Completion. <br>
-                2024 IEEE 6th Eurasia Conference on Biomedical Engineering, Healthcare and Sustainability.
-              </p>
-            </li>
-
-          </ol>
-
         </section>
 
 
         <!--
           - service
         -->
-<!-- 
+
         <section class="service">
 
           <h3 class="h3 service-title">What i'm doing</h3>
@@ -324,14 +301,14 @@
 
           </ul>
 
-        </section> -->
+        </section>
 
 
         <!--
           - testimonials
         -->
 
-        <!-- <section class="testimonials">
+        <section class="testimonials">
 
           <h3 class="h3 testimonials-title">Testimonials</h3>
 
@@ -427,14 +404,14 @@
 
           </ul>
 
-        </section> -->
+        </section>
 
 
         <!--
           - testimonials modal
         -->
 
-        <!-- <div class="modal-container" data-modal-container>
+        <div class="modal-container" data-modal-container>
 
           <div class="overlay" data-overlay></div>
 
@@ -472,14 +449,14 @@
 
           </section>
 
-        </div> -->
+        </div>
 
 
         <!--
           - clients
         -->
 
-        <!-- <section class="clients">
+        <section class="clients">
 
           <h3 class="h3 clients-title">Clients</h3>
 
@@ -523,75 +500,7 @@
 
           </ul>
 
-        </section> -->
-        <!-- <article class="resume" data-page="resume"> -->
-
-          <!-- <header>
-            <h2 class="h2 article-title">Resume</h2>
-          </header> -->
-  
-       
-          <!-- <section class="skill">
-  
-            <h3 class="h3 skills-title">My skills</h3>
-  
-            <ul class="skills-list content-card">
-  
-              <li class="skills-item">
-  
-                <div class="title-wrapper">
-                  <h5 class="h5">Web design</h5>
-                  <data value="80">80%</data>
-                </div>
-  
-                <div class="skill-progress-bg">
-                  <div class="skill-progress-fill" style="width: 80%;"></div>
-                </div>
-  
-              </li>
-  
-              <li class="skills-item">
-  
-                <div class="title-wrapper">
-                  <h5 class="h5">Graphic design</h5>
-                  <data value="70">70%</data>
-                </div>
-  
-                <div class="skill-progress-bg">
-                  <div class="skill-progress-fill" style="width: 70%;"></div>
-                </div>
-  
-              </li>
-  
-              <li class="skills-item">
-  
-                <div class="title-wrapper">
-                  <h5 class="h5">Branding</h5>
-                  <data value="90">90%</data>
-                </div>
-  
-                <div class="skill-progress-bg">
-                  <div class="skill-progress-fill" style="width: 90%;"></div>
-                </div>
-  
-              </li>
-  
-              <li class="skills-item">
-  
-                <div class="title-wrapper">
-                  <h5 class="h5">WordPress</h5>
-                  <data value="50">50%</data>
-                </div>
-  
-                <div class="skill-progress-bg">
-                  <div class="skill-progress-fill" style="width: 50%;"></div>
-                </div>
-  
-              </li>
-  
-            </ul>
-  
-          </section> -->
+        </section>
 
       </article>
 
@@ -603,7 +512,7 @@
         - #RESUME
       -->
 
-      <!-- <article class="resume" data-page="resume">
+      <article class="resume" data-page="resume">
 
         <header>
           <h2 class="h2 article-title">Resume</h2>
@@ -786,7 +695,7 @@
 
         </section>
 
-      </article> -->
+      </article>
 
 
 
