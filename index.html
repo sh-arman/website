@@ -3,11 +3,64 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Shajedul Hasan Arman — PhD Student, Computer Science @ UCF</title>
-<meta name="description" content="Shajedul Hasan Arman — PhD student in Computer Science at the University of Central Florida. Research: Explainable AI, Self-Supervised Learning, and Clinical Decision Support for biomedical imaging.">
-<meta property="og:title" content="Shajedul Hasan Arman — Explainable AI Researcher">
-<meta property="og:description" content="PhD student at UCF working on Explainable & Self-Supervised Learning for Biomedical Imaging. 11 publications.">
-<meta property="og:type" content="website">
+<title>Shajedul Hasan Arman (Arman Hasan) — PhD Student, Computer Science, UCF | Explainable AI Researcher</title>
+<meta name="description" content="Shajedul Hasan Arman (also known as Arman Hasan, Shajedul Arman) — PhD student in Computer Science at the University of Central Florida (UCF). Explainable AI, Self-Supervised Learning, Medical Imaging. Former software engineer at Panacea Live and Nextgen Innovation. B.Sc. from University of Asia Pacific (UAP).">
+<meta name="keywords" content="Shajedul Hasan Arman, Arman Hasan, Shajedul Arman, Shajedul Hasan, Arman UCF, Arman UAP, Arman Panacea, Arman Nextgen, Explainable AI, XAI, Self-Supervised Learning, Medical Imaging, University of Central Florida, PhD Computer Science">
+<meta name="author" content="Shajedul Hasan Arman">
+<meta name="robots" content="index, follow">
+<!-- TODO: if you deploy at a different URL, update canonical + og:url + og:image below -->
+<link rel="canonical" href="https://sh-arman.github.io/website/">
+<meta property="og:title" content="Shajedul Hasan Arman (Arman Hasan) — Explainable AI Researcher, UCF">
+<meta property="og:description" content="PhD student at the University of Central Florida working on Explainable & Self-Supervised Learning for Biomedical Imaging. 11 publications. Formerly software engineer at Panacea Live & Nextgen Innovation.">
+<meta property="og:type" content="profile">
+<meta property="og:url" content="https://sh-arman.github.io/website/">
+<meta property="og:image" content="https://sh-arman.github.io/website/profile.png">
+<meta property="og:site_name" content="Shajedul Hasan Arman">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Shajedul Hasan Arman — PhD Student, Computer Science @ UCF">
+<meta name="twitter:description" content="Explainable AI & Self-Supervised Learning for Biomedical Imaging. 11 publications.">
+<meta name="twitter:image" content="https://sh-arman.github.io/website/profile.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Shajedul Hasan Arman",
+  "alternateName": ["Arman Hasan", "Shajedul Arman", "Shajedul Hasan", "Arman", "S.H. Arman", "Md Shajedul Hasan Arman"],
+  "url": "https://sh-arman.github.io/website/",
+  "image": "https://sh-arman.github.io/website/profile.png",
+  "email": "mailto:shajedul.arman@ucf.edu",
+  "jobTitle": "PhD Student in Computer Science",
+  "description": "PhD student researching Explainable AI (XAI), Self-Supervised Learning, and Clinical Decision Support for biomedical imaging.",
+  "worksFor": {
+    "@type": "CollegeOrUniversity",
+    "name": "University of Central Florida",
+    "alternateName": "UCF",
+    "sameAs": "https://www.ucf.edu/"
+  },
+  "alumniOf": [
+    {
+      "@type": "CollegeOrUniversity",
+      "name": "University of Asia Pacific",
+      "alternateName": "UAP",
+      "sameAs": "https://www.uap-bd.edu/"
+    }
+  ],
+  "hasOccupation": [
+    {"@type": "Occupation", "name": "PhD Researcher", "occupationLocation": {"@type": "City", "name": "Orlando, Florida, USA"}},
+    {"@type": "Occupation", "name": "Former Software Engineer at Panacea Live"},
+    {"@type": "Occupation", "name": "Former Junior Software Engineer at Nextgen Innovation Ltd."}
+  ],
+  "knowsAbout": ["Explainable AI", "XAI", "Self-Supervised Learning", "SimCLR", "Medical Image Analysis", "Computer Vision", "Deep Learning", "SHAP", "Grad-CAM", "Trustworthy Machine Learning"],
+  "homeLocation": {"@type": "City", "name": "Orlando, Florida, USA"},
+  "nationality": {"@type": "Country", "name": "Bangladesh"},
+  "sameAs": [
+    "https://www.linkedin.com/in/armanhasan98/",
+    "https://scholar.google.com/citations?user=X2wj0XcAAAAJ&hl=en",
+    "https://www.researchgate.net/profile/Shajedul-Arman",
+    "https://github.com/sh-arman"
+  ]
+}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -89,17 +142,16 @@ nav ul a:hover{color:var(--ink);text-decoration:none}
 .hero-photo img{
   width:260px;height:260px;object-fit:cover;object-position:top center;
   border-radius:50%;display:block;
-  border:4px solid var(--surface);
+  /* border:4px solid var(--surface); */
   box-shadow:0 6px 28px rgba(19,29,41,.16);
 }
 .hero-photo::after{
   content:"";position:absolute;inset:-9px;border-radius:50%;
-  background: transparent;z-index:-1;
   /* background:var(--viridis);z-index:-1; */
 }
 .hero-photo::before{
   content:"";position:absolute;inset:-5px;border-radius:50%;
-  background: transparent;z-index:-1;
+  /* background:var(--bg);z-index:-1; */
 }
 .eyebrow{
   font-family:'IBM Plex Mono',monospace;
@@ -290,7 +342,7 @@ footer a:hover{color:var(--accent)}
 @media (max-width:760px){
   .hero-grid{grid-template-columns:1fr;gap:36px}
   .hero-photo{justify-self:center;order:-1}
-  .hero-photo img{width:250px;height:250px}
+  .hero-photo img{width:200px;height:200px}
   .cert-list li{flex-direction:column;gap:2px}
   .news-list li{grid-template-columns:1fr;gap:3px}
   nav ul{display:none;position:absolute;top:60px;left:0;right:0;
@@ -377,7 +429,7 @@ footer a:hover{color:var(--accent)}
         </div>
       </div>
       <div class="hero-photo">
-           <img src="./assets/img/image.png" alt="Portrait of Shajedul Hasan Arman" width="260" height="260" loading="lazy">
+        <img src="./assets/img/image.png" alt="Portrait of Shajedul Hasan Arman" width="260" height="260">
       </div>
     </div>
   </div>
@@ -388,7 +440,7 @@ footer a:hover{color:var(--accent)}
       <div class="sec-head reveal"><h2>Short bio</h2></div>
       <div class="reveal">
         <p>
-          Shajedul Hasan Arman is a <strong>Ph.D. student in Computer Science at the University of Central Florida (UCF)</strong>,
+          Shajedul Hasan Arman (also known as <strong>Arman Hasan</strong>) is a <strong>Ph.D. student in Computer Science at the University of Central Florida (UCF)</strong>,
           where his research focuses on explainable and self-supervised learning for biomedical imaging — building
           clinical AI models whose predictions can be interrogated and verified, not just trusted. His work spans
           XAI methods (SHAP, Grad-CAM), contrastive representation learning (SimCLR), and multimodal learning for healthcare,
@@ -398,7 +450,9 @@ footer a:hover{color:var(--accent)}
           Before his Ph.D., Arman spent <strong>four years as a software engineer in industry</strong>, architecting
           enterprise web applications for pharmaceutical supply-chain clients serving 50,000+ users and designing
           nationally deployed anti-counterfeiting systems for medicine — experience that grounds his research in
-          production-grade engineering. He received his <strong>B.Sc. in Computer Science and Engineering from the University of Asia Pacific in 2021,</strong> advised by Tahira Alam. At UCF, he also serves as a graduate teaching assistant for courses in computer networks and advanced software systems security.
+          production-grade engineering. He received his B.Sc. in Computer Science and Engineering from the
+          University of Asia Pacific in 2021, advised by Tahira Alam. At UCF, he also serves as a graduate teaching
+          assistant for courses in computer networks and advanced software systems security.
         </p>
       </div>
     </div>
@@ -425,7 +479,6 @@ footer a:hover{color:var(--accent)}
           <li><span class="news-date">07/2024</span><span>Scored <strong>102 on TOEFL iBT</strong> (Reading 30 / Writing 27).</span></li>
           <li><span class="news-date">03/2024</span><span>Scored <strong>321 on the GRE</strong> — Verbal 166 (97th percentile).</span></li>
           <li><span class="news-date">2021</span><span>B.Sc. in CSE completed at University of Asia Pacific; joined Nextgen Innovation Ltd. as software engineer.</span></li>
-          
         </ul>
       </details>
     </div>
@@ -755,12 +808,12 @@ footer a:hover{color:var(--accent)}
   <!-- ============ CONTACT ============ -->
   <section id="contact" class="contact" style="border-bottom:none">
     <div class="wrap">
-      <h2 class="reveal">Open to research collaboration, internships, and industry roles.</h2>
+      <h2 class="reveal">Open to research collaboration, internships, and industry roles in the USA &amp; Europe.</h2>
       <hr class="viridis-rule reveal" style="margin:22px 0" aria-hidden="true">
-      <!-- <p class="reveal">
+      <p class="reveal">
         If your lab works on explainable AI, medical imaging, or trustworthy ML — or your team needs
         an engineer who has shipped production systems and publishes research — I'd love to talk.
-      </p> -->
+      </p>
       <div class="links-row reveal">
         <a class="btn primary" href="mailto:shajedul.arman@ucf.edu">shajedul.arman@ucf.edu</a>
         <a class="btn" href="https://www.linkedin.com/in/armanhasan98/" target="_blank" rel="noopener">Connect on LinkedIn</a>
