@@ -1,477 +1,807 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Arman Hasan Resume</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shajedul Hasan Arman — PhD Student, Computer Science @ UCF</title>
+<meta name="description" content="Shajedul Hasan Arman — PhD student in Computer Science at the University of Central Florida. Research: Explainable AI, Self-Supervised Learning, and Clinical Decision Support for biomedical imaging.">
+<meta property="og:title" content="Shajedul Hasan Arman — Explainable AI Researcher">
+<meta property="og:description" content="PhD student at UCF working on Explainable & Self-Supervised Learning for Biomedical Imaging. 11 publications.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   Design tokens — "clinical interpretability" direction
+   Light clinical base, ink-navy text, viridis colormap accent
+   (the gradient every ML researcher recognizes from saliency maps)
+   ============================================================ */
+:root{
+  --bg:        #FAFBFC;   /* clinical white, faint cool cast */
+  --surface:   #FFFFFF;
+  --ink:       #131D29;   /* deep ink navy */
+  --ink-soft:  #36475C;   /* secondary text — darkened for readability */
+  --ink-faint: #5F7389;   /* labels, meta — darkened for readability */
+  --line:      #E2E8EF;   /* hairline */
+  --accent:    #1F7A8C;   /* deep teal — primary interactive */
+  --accent-ink:#155E6C;
+  --viridis: linear-gradient(90deg,#440154,#414487,#2A788E,#22A884,#7AD151,#FDE725);
+  --maxw: 1060px;
+  --radius: 6px;
+  font-size: 17px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+}
+body{
+  background:var(--bg);
+  color:var(--ink);
+  font-family:'IBM Plex Sans',system-ui,-apple-system,sans-serif;
+  line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+::selection{background:#22A884;color:#fff}
 
-  <!--
-    - favicon
-  -->
-  <!-- <link rel="shortcut icon" href="./assets/images/logo.ico" type="image/x-icon"> -->
+a{color:var(--accent);text-decoration:none}
+a:hover{color:var(--accent-ink);text-decoration:underline;text-underline-offset:3px}
+a:focus-visible, button:focus-visible{
+  outline:2px solid var(--accent);outline-offset:3px;border-radius:2px
+}
 
-  <!--
-    - custom css link
-  -->
-  <link rel="stylesheet" href="./assets/css/style.css">
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
 
-  <!--
-    - google font link
-  -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+/* ---------- signature: viridis hairline ---------- */
+.viridis-rule{height:3px;background:var(--viridis);border:none;width:72px;margin:0}
+
+/* ---------- header / nav ---------- */
+header{
+  position:sticky;top:0;z-index:50;
+  background:rgba(250,251,252,.92);
+  backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--line);
+}
+.nav{
+  display:flex;align-items:center;justify-content:space-between;
+  height:60px;
+}
+.brand{
+  font-family:'IBM Plex Mono',monospace;
+  font-size:.85rem;font-weight:500;letter-spacing:.02em;
+  color:var(--ink);
+}
+.brand:hover{text-decoration:none;color:var(--accent)}
+nav ul{display:flex;gap:26px;list-style:none}
+nav ul a{
+  font-size:.85rem;font-weight:500;color:var(--ink-soft);
+  letter-spacing:.01em;
+}
+nav ul a:hover{color:var(--ink);text-decoration:none}
+.nav-toggle{display:none}
+
+/* ---------- hero ---------- */
+.hero{padding:84px 0 64px;border-bottom:1px solid var(--line)}
+.hero-grid{display:grid;grid-template-columns:1fr 280px;gap:48px;align-items:center}
+.hero-photo{justify-self:end;position:relative}
+.hero-photo img{
+  width:260px;height:260px;object-fit:cover;object-position:top center;
+  border-radius:50%;display:block;
+  border:4px solid var(--surface);
+  box-shadow:0 6px 28px rgba(19,29,41,.16);
+}
+.hero-photo::after{
+  content:"";position:absolute;inset:-9px;border-radius:50%;
+  background: transparent;z-index:-1;
+  /* background:var(--viridis);z-index:-1; */
+}
+.hero-photo::before{
+  content:"";position:absolute;inset:-5px;border-radius:50%;
+  background: transparent;z-index:-1;
+}
+.eyebrow{
+  font-family:'IBM Plex Mono',monospace;
+  font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--ink-faint);margin-bottom:18px;
+}
+h1{
+  font-family:'IBM Plex Serif',Georgia,serif;
+  font-weight:600;font-size:clamp(2.2rem,5.5vw,3.4rem);
+  line-height:1.12;letter-spacing:-.01em;
+  max-width:18ch;
+}
+.hero .viridis-rule{margin:26px 0}
+.hero-thesis{
+  font-size:1.2rem;color:var(--ink-soft);max-width:56ch;line-height:1.7;
+}
+.hero-thesis strong{color:var(--ink);font-weight:600}
+.hero-meta{
+  margin-top:30px;display:flex;flex-wrap:wrap;gap:10px 28px;
+  font-family:'IBM Plex Mono',monospace;font-size:.8rem;color:var(--ink-faint);
+}
+.links-row{margin-top:26px;display:flex;flex-wrap:wrap;gap:10px}
+.btn{
+  display:inline-flex;align-items:center;gap:7px;
+  border:1px solid var(--line);border-radius:var(--radius);
+  background:var(--surface);
+  padding:9px 16px;font-size:.85rem;font-weight:500;color:var(--ink);
+  transition:border-color .15s,color .15s;
+}
+.btn:hover{border-color:var(--accent);color:var(--accent);text-decoration:none}
+.btn.primary{background:var(--ink);border-color:var(--ink);color:#fff}
+.btn.primary:hover{background:var(--accent-ink);border-color:var(--accent-ink);color:#fff}
+.btn svg{width:15px;height:15px;flex:none}
+
+/* ---------- sections ---------- */
+section{padding:64px 0;border-bottom:1px solid var(--line)}
+.sec-head{display:flex;align-items:baseline;gap:18px;margin-bottom:34px}
+h2{
+  font-family:'IBM Plex Serif',Georgia,serif;
+  font-weight:600;font-size:1.6rem;letter-spacing:-.01em;
+}
+.sec-count{
+  font-family:'IBM Plex Mono',monospace;font-size:.78rem;color:var(--ink-faint);
+}
+
+/* ---------- research interests ---------- */
+.interest-grid{
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));
+  gap:1px;background:var(--line);border:1px solid var(--line);
+  border-radius:var(--radius);overflow:hidden;
+}
+.interest{
+  background:var(--surface);padding:18px 20px;
+  font-size:.96rem;font-weight:500;
+}
+.interest span{
+  display:block;font-family:'IBM Plex Mono',monospace;
+  font-size:.76rem;font-weight:400;color:var(--ink-faint);margin-top:4px;
+}
+
+/* ---------- publications ---------- */
+.pub-list{list-style:none;counter-reset:pub}
+.pub{
+  display:grid;grid-template-columns:54px 1fr;gap:18px;
+  padding:20px 0;border-bottom:1px solid var(--line);
+}
+.pub:last-child{border-bottom:none}
+.pub-num{
+  font-family:'IBM Plex Mono',monospace;font-size:.8rem;color:var(--ink-faint);
+  padding-top:3px;
+}
+.pub-title{font-weight:600;font-size:1.05rem;line-height:1.5;color:var(--ink)}
+.pub-title a{color:inherit}
+.pub-title a:hover{color:var(--accent)}
+.pub-venue{font-size:.94rem;color:var(--ink-soft);margin-top:6px}
+.pub-tags{margin-top:9px;display:flex;flex-wrap:wrap;gap:6px}
+.tag{
+  font-family:'IBM Plex Mono',monospace;font-size:.72rem;letter-spacing:.04em;
+  border:1px solid var(--line);border-radius:999px;padding:3px 10px;color:var(--ink-soft);
+  background:var(--surface);
+}
+.tag.review{border-color:#D9C58A;background:#FBF6E7;color:#6E5A1B}
+.tag.pub{border-color:#9CC8B5;background:#EDF7F2;color:#1A5F43}
+.tag.doi a{color:inherit}
+
+/* ---------- bio ---------- */
+.bio p{font-size:1.02rem;color:var(--ink-soft);max-width:78ch;margin-bottom:14px}
+.bio p:last-child{margin-bottom:0}
+.bio strong{color:var(--ink)}
+
+/* ---------- news ---------- */
+.news-list{list-style:none;display:grid;gap:0}
+.news-list li{
+  display:grid;grid-template-columns:92px 1fr;gap:18px;
+  padding:13px 0;border-bottom:1px solid var(--line);
+  font-size:.96rem;color:var(--ink-soft);
+}
+.news-list li:last-child{border-bottom:none}
+.news-date{
+  font-family:'IBM Plex Mono',monospace;font-size:.78rem;color:var(--ink-faint);
+  padding-top:3px;white-space:nowrap;
+}
+.news-list strong{color:var(--ink);font-weight:600}
+details.older-news{margin-top:22px}
+details.older-news summary{
+  cursor:pointer;font-family:'IBM Plex Mono',monospace;font-size:.8rem;
+  letter-spacing:.06em;text-transform:uppercase;color:var(--accent);
+  list-style:none;display:inline-flex;align-items:center;gap:8px;
+}
+details.older-news summary::-webkit-details-marker{display:none}
+details.older-news summary::after{content:"+";font-size:1rem}
+details.older-news[open] summary::after{content:"−"}
+details.older-news .news-list{margin-top:10px}
+
+/* ---------- test scores ---------- */
+.score-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px}
+.score-card{
+  background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
+  padding:24px 26px;
+}
+.score-card h3{
+  font-family:'IBM Plex Mono',monospace;font-size:.8rem;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--ink-faint);font-weight:500;
+}
+.score-total{
+  font-family:'IBM Plex Serif',Georgia,serif;font-size:2.4rem;font-weight:600;
+  line-height:1.1;margin-top:8px;
+}
+.score-total small{font-family:'IBM Plex Mono',monospace;font-size:.75rem;color:var(--ink-faint);font-weight:400;margin-left:6px}
+.score-breakdown{
+  margin-top:14px;display:grid;grid-template-columns:1fr 1fr;gap:8px 18px;
+  font-size:.9rem;color:var(--ink-soft);
+}
+.score-breakdown b{color:var(--ink);font-weight:600}
+
+/* ---------- awards & certifications ---------- */
+.cert-list{list-style:none;display:grid;gap:0}
+.cert-list li{
+  display:flex;justify-content:space-between;align-items:baseline;gap:18px;
+  padding:15px 0;border-bottom:1px solid var(--line);font-size:.96rem;
+}
+.cert-list li:last-child{border-bottom:none}
+.cert-org{font-family:'IBM Plex Mono',monospace;font-size:.76rem;color:var(--ink-faint);white-space:nowrap}
+
+/* ---------- reference ---------- */
+.ref-card{
+  background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
+  padding:26px 28px;max-width:560px;
+}
+.ref-card h3{font-size:1.08rem;font-weight:600}
+.ref-card .ref-role{font-size:.95rem;color:var(--ink-soft);margin-top:3px}
+.ref-card .ref-mail{font-family:'IBM Plex Mono',monospace;font-size:.84rem;margin-top:12px;display:inline-block}
+.ref-note{margin-top:16px;font-size:.88rem;color:var(--ink-faint)}
+
+/* ---------- experience / education timeline ---------- */
+.xp{display:grid;grid-template-columns:170px 1fr;gap:24px;padding:24px 0;border-bottom:1px solid var(--line)}
+.xp:last-child{border-bottom:none}
+.xp-when{font-family:'IBM Plex Mono',monospace;font-size:.78rem;color:var(--ink-faint);padding-top:4px}
+.xp h3{font-size:1.08rem;font-weight:600}
+.xp .org{font-size:.95rem;color:var(--accent-ink);font-weight:500;margin-top:2px}
+.xp ul{margin-top:10px;padding-left:18px;color:var(--ink-soft);font-size:.96rem}
+.xp ul li{margin-bottom:7px}
+
+/* ---------- skills ---------- */
+.skill-rows{display:grid;gap:14px}
+.skill-row{display:grid;grid-template-columns:130px 1fr;gap:16px;align-items:baseline}
+.skill-label{font-family:'IBM Plex Mono',monospace;font-size:.76rem;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-faint)}
+.skill-row p{font-size:.96rem;color:var(--ink-soft)}
+
+/* ---------- contact ---------- */
+.contact{padding:72px 0}
+.contact h2{max-width:22ch}
+.contact p{margin-top:14px;color:var(--ink-soft);max-width:54ch}
+footer{
+  border-top:1px solid var(--line);padding:26px 0 40px;
+  display:flex;flex-wrap:wrap;gap:12px 28px;justify-content:space-between;
+  font-family:'IBM Plex Mono',monospace;font-size:.74rem;color:var(--ink-faint);
+}
+footer a{color:var(--ink-faint)}
+footer a:hover{color:var(--accent)}
+
+/* ---------- reveal on scroll (subtle) ---------- */
+.reveal{opacity:0;transform:translateY(12px);transition:opacity .5s ease,transform .5s ease}
+.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion: reduce){.reveal{opacity:1;transform:none}}
+
+/* ---------- responsive ---------- */
+@media (max-width:760px){
+  .hero-grid{grid-template-columns:1fr;gap:36px}
+  .hero-photo{justify-self:center;order:-1}
+  .hero-photo img{width:250px;height:250px}
+  .cert-list li{flex-direction:column;gap:2px}
+  .news-list li{grid-template-columns:1fr;gap:3px}
+  nav ul{display:none;position:absolute;top:60px;left:0;right:0;
+    background:var(--bg);border-bottom:1px solid var(--line);
+    box-shadow:0 12px 24px rgba(19,29,41,.08);
+    flex-direction:column;gap:0;padding:8px 24px 16px}
+  nav ul li{padding:10px 0;border-bottom:1px solid var(--line)}
+  nav ul li:last-child{border-bottom:none}
+  nav ul a{display:block;font-size:.95rem}
+  .nav.open nav ul{display:flex}
+  .nav-toggle{
+    display:inline-flex;align-items:center;gap:8px;
+    background:var(--surface);border:1px solid var(--line);
+    border-radius:var(--radius);padding:7px 13px;cursor:pointer;
+    font-family:'IBM Plex Mono',monospace;font-size:.75rem;color:var(--ink-soft);
+  }
+  .nav-toggle .bars{display:inline-flex;flex-direction:column;gap:3px;width:14px}
+  .nav-toggle .bars span{height:2px;background:currentColor;border-radius:2px;transition:transform .2s,opacity .2s}
+  .nav.open .nav-toggle{border-color:var(--accent);color:var(--accent)}
+  .nav.open .nav-toggle .bars span:nth-child(1){transform:translateY(5px) rotate(45deg)}
+  .nav.open .nav-toggle .bars span:nth-child(2){opacity:0}
+  .nav.open .nav-toggle .bars span:nth-child(3){transform:translateY(-5px) rotate(-45deg)}
+  .pub{grid-template-columns:1fr}
+  .pub-num{display:none}
+  .xp{grid-template-columns:1fr;gap:6px}
+  .skill-row{grid-template-columns:1fr;gap:4px}
+  .hero{padding:56px 0 48px}
+}
+</style>
 </head>
-
 <body>
 
-  <!--
-    - #MAIN
-  -->
+<header>
+  <div class="wrap nav" id="topnav">
+    <a class="brand" href="#top">S.H. ARMAN</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="topnav-inner">
+      <span class="bars" aria-hidden="true"><span></span><span></span><span></span></span>
+      MENU
+    </button>
+    <nav id="topnav-inner">
+      <ul>
+        <li><a href="#bio">Bio</a></li>
+        <li><a href="#news">News</a></li>
+        <li><a href="#research">Research</a></li>
+        <li><a href="#publications">Publications</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#teaching">Teaching</a></li>
+        <li><a href="#awards">Awards</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
 
-  <main>
+<main id="top">
 
- 
-    <aside class="sidebar" data-sidebar>
+  <!-- ============ HERO ============ -->
+  <div class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <p class="eyebrow">PhD Student · Computer Science · University of Central Florida</p>
+        <h1>Shajedul Hasan Arman</h1>
+        <hr class="viridis-rule" aria-hidden="true">
+        <p class="hero-thesis">
+          I build <strong>explainable, self-supervised learning systems for biomedical imaging</strong> —
+          models that clinicians can interrogate, not just trust. My work sits at the intersection of
+          XAI (SHAP, Grad-CAM), contrastive representation learning, and clinical decision support.
+        </p>
+        <div class="hero-meta">
+          <span>📍 Orlando, FL, USA</span>
+          <span>11 publications</span>
+          <span>4 yrs industry engineering</span>
+        </div>
+        <div class="links-row">
+          <a class="btn primary" href="mailto:shajedul.arman@ucf.edu">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></svg>
+            Email me
+          </a>
+          <a class="btn" href="https://scholar.google.com/citations?user=X2wj0XcAAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar</a>
+          <a class="btn" href="https://www.researchgate.net/profile/Shajedul-Arman" target="_blank" rel="noopener">ResearchGate</a>
+          <a class="btn" href="https://www.linkedin.com/in/armanhasan98/" target="_blank" rel="noopener">LinkedIn</a>
+          <a class="btn" href="https://github.com/sh-arman" target="_blank" rel="noopener">GitHub</a>
+          <a class="btn" href="Arman_resume.pdf" target="_blank" rel="noopener">CV (PDF)</a>
+        </div>
+      </div>
+      <div class="hero-photo">
+           <img src="./assets/img/image.png" alt="Portrait of Shajedul Hasan Arman" width="260" height="260" loading="lazy">
+      </div>
+    </div>
+  </div>
 
-      <div class="sidebar-info">
+  <!-- ============ SHORT BIO ============ -->
+  <section id="bio" class="bio">
+    <div class="wrap">
+      <div class="sec-head reveal"><h2>Short bio</h2></div>
+      <div class="reveal">
+        <p>
+          Shajedul Hasan Arman is a <strong>Ph.D. student in Computer Science at the University of Central Florida (UCF)</strong>,
+          where his research focuses on explainable and self-supervised learning for biomedical imaging — building
+          clinical AI models whose predictions can be interrogated and verified, not just trusted. His work spans
+          XAI methods (SHAP, Grad-CAM), contrastive representation learning (SimCLR), and multimodal learning for healthcare,
+          with <strong>11 publications</strong> across IEEE conferences, journals, and peer-reviewed venues.
+        </p>
+        <p>
+          Before his Ph.D., Arman spent <strong>four years as a software engineer in industry</strong>, architecting
+          enterprise web applications for pharmaceutical supply-chain clients serving 50,000+ users and designing
+          nationally deployed anti-counterfeiting systems for medicine — experience that grounds his research in
+          production-grade engineering. He received his <strong>B.Sc. in Computer Science and Engineering from the University of Asia Pacific in 2021,</strong> advised by Tahira Alam. At UCF, he also serves as a graduate teaching assistant for courses in computer networks and advanced software systems security.
+        </p>
+      </div>
+    </div>
+  </section>
 
-        <figure class="avatar-box">
-          <img src="./assets/img/Arman.jpg" alt="Arman Hasan" width="80" style="border-radius: 20px;">
-        </figure>
+  <!-- ============ NEWS ============ -->
+  <section id="news">
+    <div class="wrap">
+      <div class="sec-head reveal"><h2>News</h2></div>
+      <ul class="news-list reveal">
+        <li><span class="news-date">01/2026</span><span>Started as <strong>Graduate Teaching Assistant for CNT 3004 — Computer Network Concepts</strong> at UCF (Spring 2026).</span></li>
+        <li><span class="news-date">2026</span><span>Paper accepted in <strong>Materials Advances (Royal Society of Chemistry)</strong>: ML/DL-driven analysis of RbGeI₃ perovskite solar cells.</span></li>
+        <li><span class="news-date">2026</span><span>State-of-the-art review on <strong>multimodal deep learning for medical diagnosis</strong> submitted for journal review.</span></li>
+        <li><span class="news-date">12/2025</span><span>Presented XAI-driven ensemble for customer churn prediction at <strong>ICCIT 2025</strong>.</span></li>
+        <li><span class="news-date">2025</span><span>Two papers presented at <strong>ECBIOS 2025</strong>: knowledge distillation for facial attribute prediction, and DroneDeep RL for traffic congestion control.</span></li>
+        <li><span class="news-date">2025</span><span>Four papers on <strong>explainable SSL for medical imaging</strong> (breast cancer, brain tumor MRI, gallbladder ultrasound, heart disease) submitted for journal review.</span></li>
+        <li><span class="news-date">08/2025</span><span>Joined the <strong>University of Central Florida</strong> as a Ph.D. student in Computer Science; appointed GTA for CIS 6614 — Advanced Software Systems Security.</span></li>
+      </ul>
 
-        <div class="info-content">
-          <h1 class="name" title="Arman Hasan">Arman Hasan</h1>
+      <details class="older-news reveal">
+        <summary>Older news</summary>
+        <ul class="news-list">
+          <li><span class="news-date">06/2024</span><span>Paper "Automatic Violence Detection Technique Using MobiNet" accepted at <strong>IEEE ECBIOS 2024</strong>; completed poster presentation.</span></li>
+          <li><span class="news-date">07/2024</span><span>Scored <strong>102 on TOEFL iBT</strong> (Reading 30 / Writing 27).</span></li>
+          <li><span class="news-date">03/2024</span><span>Scored <strong>321 on the GRE</strong> — Verbal 166 (97th percentile).</span></li>
+          <li><span class="news-date">2021</span><span>B.Sc. in CSE completed at University of Asia Pacific; joined Nextgen Innovation Ltd. as software engineer.</span></li>
+          
+        </ul>
+      </details>
+    </div>
+  </section>
 
-          <!-- <p class="title">Web developer</p> -->
-          <ul class="social-list">
+  <!-- ============ RESEARCH ============ -->
+  <section id="research">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <h2>Research interests</h2>
+        <span class="sec-count">08 areas</span>
+      </div>
+      <div class="interest-grid reveal">
+        <div class="interest">Explainable AI (XAI)<span>SHAP · Grad-CAM</span></div>
+        <div class="interest">Self-Supervised &amp; Contrastive Learning<span>SimCLR pipelines</span></div>
+        <div class="interest">Medical Image Analysis<span>Clinical AI</span></div>
+        <div class="interest">Computer Vision<span>CNNs · ViTs</span></div>
+        <div class="interest">Trustworthy &amp; Robust ML<span>reliability under shift</span></div>
+        <div class="interest">Privacy-Preserving ML<span>sensitive clinical data</span></div>
+        <div class="interest">Multimodal Learning<span>text + image for healthcare</span></div>
+        <div class="interest">Systems Security &amp; AI Safety<span>secure ML systems</span></div>
+      </div>
+    </div>
+  </section>
 
-            <li class="social-item">
-              <a href="https://www.linkedin.com/in/armanhasan98" target="_blank" class="social-link">
-                <ion-icon name="logo-linkedin"></ion-icon>
-              </a>
-            </li>
-  
-            <li class="social-item">
-              <a href="https://github.com/sh-arman" target="_blank" class="social-link">
-                <ion-icon name="logo-github"></ion-icon>
-              </a>
-            </li>
-  
-            <!-- <li class="social-item">
-              <a href="#" class="social-link">
-                <ion-icon name="logo-instagram"></ion-icon>
-              </a>
-            </li> -->
-  
+  <!-- ============ PUBLICATIONS ============ -->
+  <section id="publications">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <h2>Publications</h2>
+        <span class="sec-count">11 papers · <a href="https://scholar.google.com/citations?user=X2wj0XcAAAAJ&hl=en" target="_blank" rel="noopener">full list on Scholar →</a></span>
+      </div>
+
+      <!-- TODO: replace each href="#" with the real DOI link -->
+      <ol class="pub-list reveal">
+
+        <li class="pub">
+          <span class="pub-num">[01]</span>
+          <div>
+            <p class="pub-title">A State-of-the-Art Review on Multimodal Deep Learning for Medical Diagnosis: Integrating Text and Image</p>
+            <p class="pub-venue">Research Square, 2026 — under journal review</p>
+            <div class="pub-tags"><span class="tag review">UNDER REVIEW</span><span class="tag doi"><a href="#">DOI</a></span></div>
+          </div>
+        </li>
+
+        <li class="pub">
+          <span class="pub-num">[02]</span>
+          <div>
+            <p class="pub-title">Investigating the Impact of Non-Ideal Conditions on the Performance of an RbGeI₃ Perovskite Solar Cell Through SCAPS-1D, Machine Learning and Deep Learning Approaches</p>
+            <p class="pub-venue">Materials Advances, Royal Society of Chemistry, 2026</p>
+            <div class="pub-tags"><span class="tag pub">JOURNAL</span><span class="tag doi"><a href="#">DOI</a></span></div>
+          </div>
+        </li>
+
+        <li class="pub">
+          <span class="pub-num">[03]</span>
+          <div>
+            <p class="pub-title">Facial Attribute Prediction Using Knowledge Distillation</p>
+            <p class="pub-venue">7th Eurasia Conference on Biomedical Engineering, Healthcare and Sustainability (ECBIOS), 2025</p>
+            <div class="pub-tags"><span class="tag pub">CONFERENCE</span><span class="tag doi"><a href="#">DOI</a></span></div>
+          </div>
+        </li>
+
+        <li class="pub">
+          <span class="pub-num">[04]</span>
+          <div>
+            <p class="pub-title">DroneDeep RL (DDR): A Traffic Congestion Control Strategy Using Prioritization LLM Agent and Circular Deep Q-Network</p>
+            <p class="pub-venue">7th Eurasia Conference on Biomedical Engineering, Healthcare and Sustainability (ECBIOS), 2025</p>
+            <div class="pub-tags"><span class="tag pub">CONFERENCE</span><span class="tag doi"><a href="#">DOI</a></span></div>
+          </div>
+        </li>
+
+        <li class="pub">
+          <span class="pub-num">[05]</span>
+          <div>
+            <p class="pub-title">Explainable AI (XAI) Driven Neural–Machine Learning Ensemble for Business Customer Churn Prediction</p>
+            <p class="pub-venue">28th International Conference on Computer and Information Technology (ICCIT), 2025</p>
+            <div class="pub-tags"><span class="tag pub">CONFERENCE</span><span class="tag doi"><a href="#">DOI</a></span></div>
+          </div>
+        </li>
+
+        <li class="pub">
+          <span class="pub-num">[06]</span>
+          <div>
+            <p class="pub-title">Interpretable Deep Learning for Symptom-Based Lung Cancer Prediction Using a 1D CNN Framework</p>
+            <p class="pub-venue">Zenodo Preprint, 2025</p>
+            <div class="pub-tags"><span class="tag">PREPRINT</span><span class="tag doi"><a href="#">DOI</a></span></div>
+          </div>
+        </li>
+
+        <li class="pub">
+          <span class="pub-num">[07]</span>
+          <div>
+            <p class="pub-title">An Explainable Self-Supervised Learning Framework for Interpretable and Accurate Heart Disease Prediction Using EDA–SimCLR–SHAP Pipeline</p>
+            <p class="pub-venue">Research Square, 2025 — under journal review</p>
+            <div class="pub-tags"><span class="tag review">UNDER REVIEW</span><span class="tag doi"><a href="#">DOI</a></span></div>
+          </div>
+        </li>
+
+        <li class="pub">
+          <span class="pub-num">[08]</span>
+          <div>
+            <p class="pub-title">Towards Explainable Breast Cancer Classification Using SimCLR-Based Self-Supervised Representation Learning</p>
+            <p class="pub-venue">Research Square, 2025 — under journal review</p>
+            <div class="pub-tags"><span class="tag review">UNDER REVIEW</span><span class="tag doi"><a href="#">DOI</a></span></div>
+          </div>
+        </li>
+
+        <li class="pub">
+          <span class="pub-num">[09]</span>
+          <div>
+            <p class="pub-title">An Explainable SSL-Based Model for Robust Multi-Class Brain Tumor Classification from MRI Images</p>
+            <p class="pub-venue">Research Square, 2025 — under journal review</p>
+            <div class="pub-tags"><span class="tag review">UNDER REVIEW</span><span class="tag doi"><a href="#">DOI</a></span></div>
+          </div>
+        </li>
+
+        <li class="pub">
+          <span class="pub-num">[10]</span>
+          <div>
+            <p class="pub-title">GallNet: An Explainable Deep Learning Model for Multi-Class Gallbladder Disease Classification Using Ultrasound Imaging</p>
+            <p class="pub-venue">Research Square, 2025 — under journal review</p>
+            <div class="pub-tags"><span class="tag review">UNDER REVIEW</span><span class="tag doi"><a href="#">DOI</a></span></div>
+          </div>
+        </li>
+
+        <li class="pub">
+          <span class="pub-num">[11]</span>
+          <div>
+            <p class="pub-title">Automatic Violence Detection Technique Using MobiNet</p>
+            <p class="pub-venue">IEEE International Conference on Emerging Challenges in Bioinformatics &amp; Biomedical Sciences (ECBIOS), 2024</p>
+            <div class="pub-tags"><span class="tag pub">CONFERENCE</span><span class="tag doi"><a href="#">DOI</a></span></div>
+          </div>
+        </li>
+
+      </ol>
+    </div>
+  </section>
+
+  <!-- ============ EXPERIENCE ============ -->
+  <section id="experience">
+    <div class="wrap">
+      <div class="sec-head reveal"><h2>Industry experience</h2></div>
+
+      <div class="xp reveal">
+        <div class="xp-when">2022 — 2025</div>
+        <div>
+          <h3>Software Engineer</h3>
+          <p class="org">Panacea Live · Dhaka, Bangladesh</p>
+          <ul>
+            <li>Architected enterprise web applications for pharmaceutical supply-chain clients serving 50,000+ end-users.</li>
+            <li>Designed anti-counterfeiting verification systems (QR-code and serial-number based) deployed nationally for medicine and medical devices.</li>
+            <li>Drove CI/CD adoption (GitHub Actions + Docker), cutting release cycle from 2 weeks to 3 days.</li>
+            <li>Led code reviews and refactoring, reducing codebase complexity by ~30% across three legacy projects.</li>
           </ul>
         </div>
-
-        <button class="info_more-btn" data-sidebar-btn>
-          <span>Show Contacts</span>
-
-          <ion-icon name="chevron-down"></ion-icon>
-        </button>
-
       </div>
 
-      <div class="sidebar-info_more">
-
-        <div class="separator"></div>
-
-        <ul class="contacts-list">
-
-          <li class="contact-item">
-
-            <div class="icon-box">
-              <ion-icon name="mail-outline"></ion-icon>
-            </div>
-
-            <div class="contact-info">
-              <p class="contact-title">Email</p>
-
-              <a href="mailto:armanhassan504@gmail.com" class="contact-link">armanhassan504@gmail.com</a>
-            </div>
-
-          </li>
-
-          <li class="contact-item">
-
-            <div class="icon-box">
-              <ion-icon name="logo-whatsapp"></ion-icon>
-            </div>
-
-            <div class="contact-info">
-              <p class="contact-title">Phone</p>
-
-              <a href="tel:+8801947423947" class="contact-link">+880 1947423947</a>
-            </div>
-
-          </li>
-
-          <li class="contact-item">
-
-            <div class="icon-box">
-              <ion-icon name="location-outline"></ion-icon>
-            </div>
-
-            <div class="contact-info">
-              <p class="contact-title">Location</p>
-
-              <address>Dhaka, Bangladesh</address>
-            </div>
-
-          </li>
-
-        </ul>
-
-        <div class="separator"></div>
-
-        
-
+      <div class="xp reveal">
+        <div class="xp-when">2021 — 2022</div>
+        <div>
+          <h3>Junior Software Engineer</h3>
+          <p class="org">Nextgen Innovation Ltd. · Dhaka, Bangladesh</p>
+          <ul>
+            <li>Built RESTful APIs serving 10,000+ monthly active mobile-app users (Lumen, MySQL, JavaScript).</li>
+            <li>Optimized core business-logic queries, cutting average API response time by 40%.</li>
+          </ul>
+        </div>
       </div>
-
-    </aside>
-
-
-    <div class="main-content">
-
-  
-
-      <nav class="navbar">
-
-        <ul class="navbar-list">
-          <li class="navbar-item">
-            <!-- <button class="navbar-link  " data-nav-link>About</button> -->
-            <a class="navbar-link active" href="index.html">About</a>
-          </li>
-
-          <li class="navbar-item">
-            <a class="navbar-link" href="resume.html">Resume</a>
-          </li>
-
-          <li class="navbar-item">
-            <a class="navbar-link" href="publication.html">Publication</a>
-          </li>
-
-          <li class="navbar-item">
-            <a class="navbar-link" href="project.html">Project</a>
-          </li>
-
-          <li class="navbar-item">
-            <a class="navbar-link" href="blog.html">Blog</a>
-          </li>
-
-          <!-- <li class="navbar-item">
-            <a class="navbar-link" href="contact.html">Contact</a>
-          </li> -->
-        </ul>
-
-      </nav>
-
-
-
-      <article class="about  active" data-page="about">
-
-        <header>
-          <h2 class="h2 article-title">About me</h2>
-        </header>
-
-        <section class="about-text">
-          <p>
-            Hi! There, I am Shajedul Hasan Arman
-          </p>
-
-          <p>
-            I am a Software Engineer at Panacea Live Ltd. at Bangladesh. My research interests are Artificial Intelligence, Machine Learning, Computer Vision, Data Science, and Software Development.
-            Furthermore, I've been focusing on Networking and Cyber-Security area. I received my BS.c degree from the University of Asia Pacific (UAP), advised by Mrs. Tahira Alam. <br> <br>
-            
-          I am seeking a graduate program in the field of Computer Science.
-          </p>
-        </section>
-
-        <h3 class="h3">Redearch Interests</h3> <br>
-        <ul class="filter-list">
-          <!-- <li class="filter-item">
-            <button class="active" data-filter-btn>All</button>
-          </li> -->
-          <li class="filter-item">
-            <button class="active" data-filter-btn>Artificial Intelligence</button>
-          </li>
-          <li class="filter-item">
-            <button class="active" data-filter-btn>Machine Learning</button>
-          </li>
-          <li class="filter-item">
-            <button class="active" data-filter-btn>Software & Cyber-Security</button>
-          </li>
-          <!-- <li class="filter-item">
-            <button class="active" data-filter-btn>Computer Netwokring</button>
-          </li> -->
-        </ul>
-
-
-
-        <section class="timeline">
-          <div class="title-wrapper">
-            <div class="icon-box">
-              <ion-icon name="newspaper-outline"></ion-icon>
-            </div>
-
-            <h3 class="h3 active">News</h3>
-          </div>
-
-          <ol class="timeline-list">
-
-            <li class="timeline-item">
-              <!-- <h4 class="h4 timeline-item-title">Panacea Live Ltd</h4> -->
-              <span class="h4">18 Sep 2024</span>
-              <p class="timeline-text">
-                "Image Recognition for Early Diagnosis and Prognosis of Alzheimer’s Disease Using Multimodal Brain Imaging"<br>
-                Submitted: 27th International Conference on Computer and Information Technology <br>
-              </p>
-            </li>
-
-            <li class="timeline-item">
-              <!-- <h4 class="h4 timeline-item-title">Panacea Live Ltd</h4> -->
-              <span class="h4">18 Sep 2024</span>
-              <p class="timeline-text">
-                "A Hybrid Approach to Diabetic Retinopathy Detection: Leveraging Custom CNN and Transfer Learning"<br>
-                Submitted: 27th International Conference on Computer and Information Technology <br>
-              </p>
-            </li>
-
-            <li class="timeline-item">
-              <!-- <h4 class="h4 timeline-item-title">Panacea Live Ltd</h4> -->
-              <span class="h4">9 July 2024</span>
-              <p class="timeline-text">
-                "An Automatic Violence Detection Technique Using Mobinet", Paper No.: EC240145 <br>
-                Program committees finished reviewing your full paper, and your paper is qualified for the inclusion in the conference proceedings for IEEE/ EI evaluation and publication. <br>
-              </p>
-            </li>
-
-            <li class="timeline-item">
-              <!-- <h4 class="h4 timeline-item-title">Panacea Live Ltd</h4> -->
-              <span class="h4">21 June 2024</span>
-              <p class="timeline-text">
-                IEEE ECBIOS 2024 Certificate of Online Poster Presentation Completion. <br>
-                2024 IEEE 6th Eurasia Conference on Biomedical Engineering, Healthcare and Sustainability.
-              </p>
-            </li>
-
-          </ol>
-
-        </section>
-
-
-        <!--
-          - service
-        -->
-<!-- 
-        <section class="service">
-
-          <h3 class="h3 service-title">What i'm doing</h3>
-
-          <ul class="service-list">
-
-            <li class="service-item">
-
-              <div class="service-icon-box">
-                <img src="./assets/images/icon-design.svg
-                " alt="design icon" width="40">
-              </div>
-
-              <div class="service-content-box">
-                <h4 class="h4 service-item-title">Web design</h4>
-
-                <p class="service-item-text">
-                  The most modern and high-quality design made at a professional level.
-                </p>
-              </div>
-
-            </li>
-
-            <li class="service-item">
-
-              <div class="service-icon-box">
-                <img src="./assets/images/icon-dev.svg" alt="Web development icon" width="40">
-              </div>
-
-              <div class="service-content-box">
-                <h4 class="h4 service-item-title">Web development</h4>
-
-                <p class="service-item-text">
-                  High-quality development of sites at the professional level.
-                </p>
-              </div>
-
-            </li>
-
-            <li class="service-item">
-
-              <div class="service-icon-box">
-                <img src="./assets/images/icon-app.svg" alt="mobile app icon" width="40">
-              </div>
-
-              <div class="service-content-box">
-                <h4 class="h4 service-item-title">Mobile apps</h4>
-
-                <p class="service-item-text">
-                  Professional development of applications for iOS and Android.
-                </p>
-              </div>
-
-            </li>
-
-            <li class="service-item">
-
-              <div class="service-icon-box">
-                <img src="./assets/images/icon-photo.svg" alt="camera icon" width="40">
-              </div>
-
-              <div class="service-content-box">
-                <h4 class="h4 service-item-title">Photography</h4>
-
-                <p class="service-item-text">
-                  I make high-quality photos of any category at a professional level.
-                </p>
-              </div>
-
-            </li>
-
-          </ul>
-
-        </section> -->
-
-
-        <!--
-          - testimonials
-        -->
-
-        <section class="testimonials">
-          <h3 class="h3 testimonials-title">Reference </h3>
-          <ul class="testimonials-list has-scrollbar">
-
-            <li class="testimonials-item">
-              <div class="content-card" data-testimonials-item>
-                <figure class="testimonials-avatar-box">
-                  <img src="./assets/img/tahira-maam.jpeg" alt="Tahira Alam" width="60" data-testimonials-avatar>
-                </figure>
-                <a class="h4 testimonials-item-title" data-testimonials-title href="https://cse.uap-bd.edu/faculty/faculty_details/12" target="_blank">Tahira Alam</a>
-                <div class="testimonials-text" data-testimonials-text>
-                  <p>
-                    Assistant Professor @ Dept. of CSE <br>
-                    University of Asia Pacific <br>
-                    tahira.cse@uap-bd.edu
-                  </p>
-                </div>
-              </div>
-            </li>
-
-            <li class="testimonials-item">
-              <div class="content-card" data-testimonials-item>
-                <figure class="testimonials-avatar-box">
-                  <img src="./assets/img/farhan-bro.jpeg" alt="Md Farhan Hasin Choudhury" width="60" data-testimonials-avatar>
-                </figure>
-                <a class="h4 testimonials-item-title" data-testimonials-title href="https://farhan.dev/" target="_blank">Farhan Hasin Choudhury</a>
-                <div class="testimonials-text" data-testimonials-text>
-                  <p>
-                    Software Engineer @ FreeCodeCamp <br>
-                    farhan@freecodecamp.org <br>
-                  </p>
-                </div>
-              </div>
-            </li>
-          </ul>
-
-        </section>
-
-
-        <!--- testimonials modal-->
-        <!-- <div class="modal-container" data-modal-container>
-          <div class="overlay" data-overlay></div>
-          <section class="testimonials-modal">
-            <button class="modal-close-btn" data-modal-close-btn>
-              <ion-icon name="close-outline"></ion-icon>
-            </button>
-            <div class="modal-img-wrapper">
-              <figure class="modal-avatar-box">
-                <img src="./assets/images/avatar-1.png" alt="Daniel lewis" width="80" data-modal-img>
-              </figure>
-              <img src="./assets/images/icon-quote.svg" alt="quote icon">
-            </div>
-            <div class="modal-content">
-              <h4 class="h3 modal-title" data-modal-title>Daniel lewis</h4>
-              <time datetime="2021-06-14">14 June, 2021</time>
-              <div data-modal-text>
-                <p>
-                  Richard was hired to create a corporate identity. We were very pleased with the work done. She has a
-                  lot of experience
-                  and is very concerned about the needs of client. Lorem ipsum dolor sit amet, ullamcous cididt
-                  consectetur adipiscing
-                  elit, seds do et eiusmod tempor incididunt ut laborels dolore magnarels alia.
-                </p>
-              </div>
-            </div>
-          </section>
-        </div> -->
-
-
-    
-        <!-- <section class="clients">
-
-          <h3 class="h3 clients-title">Clients</h3>
-
-          <ul class="clients-list has-scrollbar">
-
-            <li class="clients-item">
-              <a href="#">
-                <img src="./assets/images/logo-1-color.png" alt="client logo">
-              </a>
-            </li>
-
-            <li class="clients-item">
-              <a href="#">
-                <img src="./assets/images/logo-2-color.png" alt="client logo">
-              </a>
-            </li>
-
-            <li class="clients-item">
-              <a href="#">
-                <img src="./assets/images/logo-3-color.png" alt="client logo">
-              </a>
-            </li>
-
-            <li class="clients-item">
-              <a href="#">
-                <img src="./assets/images/logo-4-color.png" alt="client logo">
-              </a>
-            </li>
-
-            <li class="clients-item">
-              <a href="#">
-                <img src="./assets/images/logo-5-color.png" alt="client logo">
-              </a>
-            </li>
-
-            <li class="clients-item">
-              <a href="#">
-                <img src="./assets/images/logo-6-color.png" alt="client logo">
-              </a>
-            </li>
-
-          </ul>
-
-        </section> -->
-        <!-- <article class="resume" data-page="resume"> -->  
-      </article>
     </div>
+  </section>
 
-  </main>
-  <script src="./assets/js/script.js"></script>
-  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+  <!-- ============ TEACHING ============ -->
+  <section id="teaching">
+    <div class="wrap">
+      <div class="sec-head reveal"><h2>Teaching</h2></div>
+
+      <div class="xp reveal">
+        <div class="xp-when">Spring 2026</div>
+        <div>
+          <h3>Graduate Teaching Assistant — CNT 3004: Computer Network Concepts</h3>
+          <p class="org">University of Central Florida</p>
+          <ul>
+            <li>Facilitated recitation sections, graded assignments, and held weekly office hours covering TCP/IP, routing protocols, and network security.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="xp reveal">
+        <div class="xp-when">Fall 2025</div>
+        <div>
+          <h3>Graduate Teaching Assistant — CIS 6614: Advanced Software Systems Security</h3>
+          <p class="org">University of Central Florida</p>
+          <ul>
+            <li>Led lab sessions on secure coding practices, vulnerability analysis, and penetration testing fundamentals for 30+ graduate students.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ EDUCATION ============ -->
+  <section id="education">
+    <div class="wrap">
+      <div class="sec-head reveal"><h2>Education</h2></div>
+
+      <div class="xp reveal">
+        <div class="xp-when">2025 — Present</div>
+        <div>
+          <h3>Ph.D., Computer Science</h3>
+          <p class="org">University of Central Florida · Orlando, FL</p>
+          <ul><li>Research focus: Explainable &amp; Self-Supervised Learning for Biomedical Imaging.</li></ul>
+        </div>
+      </div>
+
+      <div class="xp reveal">
+        <div class="xp-when">2021</div>
+        <div>
+          <h3>B.Sc., Computer Science and Engineering</h3>
+          <p class="org">University of Asia Pacific · Dhaka, Bangladesh</p>
+          <ul><li>Advised by Tahira Alam, Assistant Professor, Dept. of CSE.</li></ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ TEST SCORES ============ -->
+  <section id="scores">
+    <div class="wrap">
+      <div class="sec-head reveal"><h2>Standardised test scores</h2></div>
+      <div class="score-grid reveal">
+        <div class="score-card">
+          <h3>GRE · March 2024</h3>
+          <p class="score-total">321<small>/ 340</small></p>
+          <div class="score-breakdown">
+            <span>Verbal <b>166</b> · 97th %ile</span>
+            <span>Quant <b>155</b> · 58th %ile</span>
+            <span>AWA <b>3.5</b></span>
+          </div>
+        </div>
+        <div class="score-card">
+          <h3>TOEFL iBT · July 2024</h3>
+          <p class="score-total">102<small>/ 120</small></p>
+          <div class="score-breakdown">
+            <span>Reading <b>30</b></span>
+            <span>Listening <b>26</b></span>
+            <span>Speaking <b>19</b></span>
+            <span>Writing <b>27</b></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SKILLS ============ -->
+  <section id="skills">
+    <div class="wrap">
+      <div class="sec-head reveal"><h2>Technical skills</h2></div>
+      <div class="skill-rows reveal">
+        <div class="skill-row">
+          <span class="skill-label">Languages</span>
+          <p>Python · JavaScript · PHP · Laravel</p>
+        </div>
+        <div class="skill-row">
+          <span class="skill-label">ML / DL</span>
+          <p>PyTorch · TensorFlow/Keras · Scikit-learn · SimCLR · OpenCV · NumPy · Pandas · Matplotlib/Seaborn</p>
+        </div>
+        <div class="skill-row">
+          <span class="skill-label">Platforms</span>
+          <p>Linux (Ubuntu) · macOS · Windows · Docker · GitHub Actions</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ HONOURS & AWARDS ============ -->
+  <section id="awards">
+    <div class="wrap">
+      <div class="sec-head reveal"><h2>Honours &amp; awards</h2></div>
+      <ul class="cert-list reveal">
+        <li>
+          <span><strong>Runner-Up, Inter-University Software Exhibition</strong> — competitive software showcase across universities</span>
+          <span class="cert-org">UAP Software &amp; Hardware Carnival</span>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============ CERTIFICATIONS ============ -->
+  <section id="certifications">
+    <div class="wrap">
+      <div class="sec-head reveal"><h2>Professional development &amp; certifications</h2></div>
+      <ul class="cert-list reveal">
+        <li>
+          <span>Visualizing Filters of a CNN using TensorFlow</span>
+          <span class="cert-org">DeepLearning.AI / Coursera</span>
+        </li>
+        <li>
+          <span>Python for Data Science, AI &amp; Development</span>
+          <span class="cert-org">IBM / Coursera</span>
+        </li>
+        <li>
+          <span>Machine Learning with Python</span>
+          <span class="cert-org">IBM / Coursera</span>
+        </li>
+        <li>
+          <span>Advanced Web Development</span>
+          <span class="cert-org">Professional Training</span>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============ REFERENCE ============ -->
+  <section id="reference">
+    <div class="wrap">
+      <div class="sec-head reveal"><h2>Reference</h2></div>
+      <div class="ref-card reveal">
+        <h3><a href="https://cse.uap-bd.edu/faculty/faculty_details/12" target="_blank" rel="noopener">Tahira Alam</a></h3>
+        <p class="ref-role">Assistant Professor, Dept. of Computer Science and Engineering<br>University of Asia Pacific, Dhaka, Bangladesh</p>
+        <a class="ref-mail" href="mailto:tahira.cse@uap-bd.edu">tahira.cse@uap-bd.edu</a>
+      </div>
+      <p class="ref-note reveal">Additional references available upon request.</p>
+    </div>
+  </section>
+
+  <!-- ============ CONTACT ============ -->
+  <section id="contact" class="contact" style="border-bottom:none">
+    <div class="wrap">
+      <h2 class="reveal">Open to research collaboration, internships, and industry roles.</h2>
+      <hr class="viridis-rule reveal" style="margin:22px 0" aria-hidden="true">
+      <!-- <p class="reveal">
+        If your lab works on explainable AI, medical imaging, or trustworthy ML — or your team needs
+        an engineer who has shipped production systems and publishes research — I'd love to talk.
+      </p> -->
+      <div class="links-row reveal">
+        <a class="btn primary" href="mailto:shajedul.arman@ucf.edu">shajedul.arman@ucf.edu</a>
+        <a class="btn" href="https://www.linkedin.com/in/armanhasan98/" target="_blank" rel="noopener">Connect on LinkedIn</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap" style="display:flex;flex-wrap:wrap;gap:12px 28px;justify-content:space-between;width:100%">
+    <span>© 2026 Shajedul Hasan Arman</span>
+    <span>
+      <a href="https://scholar.google.com/citations?user=X2wj0XcAAAAJ&hl=en" target="_blank" rel="noopener">Scholar</a> ·
+      <a href="https://www.researchgate.net/profile/Shajedul-Arman" target="_blank" rel="noopener">ResearchGate</a> ·
+      <a href="https://www.linkedin.com/in/armanhasan98/" target="_blank" rel="noopener">LinkedIn</a> ·
+      <a href="https://github.com/sh-arman" target="_blank" rel="noopener">GitHub</a>
+    </span>
+  </div>
+</footer>
+
+<script>
+// Subtle scroll reveal (respects prefers-reduced-motion via CSS)
+const io = new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+},{threshold:.08});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+// Mobile menu toggle
+const topnav = document.getElementById('topnav');
+const navToggle = document.getElementById('navToggle');
+function setMenu(open){
+  topnav.classList.toggle('open', open);
+  navToggle.setAttribute('aria-expanded', String(open));
+}
+navToggle.addEventListener('click', ()=> setMenu(!topnav.classList.contains('open')));
+document.querySelectorAll('nav a').forEach(a=>{
+  a.addEventListener('click', ()=> setMenu(false));
+});
+document.addEventListener('keydown', e=>{ if(e.key==='Escape') setMenu(false); });
+</script>
 
 </body>
 </html>
